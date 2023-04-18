@@ -23,6 +23,7 @@ export default ({albums, setAlbums, errors, setErrors}) => {
       navigate("/");
     })
     .catch((err) => {
+      console.log("test");
       const errorResponse = err.response.data.errors;
       const errorArr = [];
       for (const key of Object.keys(errorResponse)) {

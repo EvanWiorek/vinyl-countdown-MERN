@@ -1,4 +1,4 @@
-const AlbumController = require('../controllers/album.controller');
+const AlbumController = require('../controllers/album.controller.js');
 
 
 module.exports = function(app){

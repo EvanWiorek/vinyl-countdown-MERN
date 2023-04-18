@@ -1,9 +1,9 @@
 const { response, request } = require("express");
-const { Album } = require("../models/album.model");
-
+const { Album } = require("../models/album.model.js");
 
 module.exports.getAllAlbums = (request, response) => {
-  Album.find().sort({title: 1})
+  Album.find()
+    .sort({ title: 1 })
     .then((albums) => response.status(200).json(albums))
     .catch((err) => response.status(400).json(err));
 };
@@ -21,18 +21,21 @@ module.exports.createAlbum = (request, response) => {
     artistName,
     owned,
     description,
-    genres
+    genres,
   })
     .then((album) => response.status(201).json(album))
     .catch((err) => response.status(400).json(err));
 };
 
-module.exports.updateAlbum = (request, repsonse) => {
+module.exports.updateAlbum = (request, response) => {
   Album.findOneAndUpdate({ _id: request.params.id }, request.body, {
     new: true,
+    runValidators: true,
   })
-    .then((updatedAlbum) => repsonse.status(200).json(updatedAlbum))
-    .catch((err) => response.status(400).json(err));
+    .then((updatedAlbum) => response.status(200).json(updatedAlbum))
+    .catch((err) => {
+      response.status(400).json(err);
+    });
 };
 
 module.exports.deleteAlbum = (request, response) => {

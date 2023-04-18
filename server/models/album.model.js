@@ -18,10 +18,6 @@ const AlbumSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    // isFavorited: {
-    //   type: Boolean,
-    //   default: false,
-    // },
     description: {
       type: String,
       required: [true, "Description name cannot not be blank."],

@@ -243,9 +243,9 @@ export default ({
         <div className="d-flex align-items-center gap-3 mt-4 justify-content-end">
           <input
             type="submit"
-            className={`btn btn-outline-primary ${
-              formIsValid ? "" : "disabled"
-            }`}
+            // className={`btn btn-outline-primary ${
+            //   formIsValid ? "" : "disabled"
+            // }`}
           />
           <div>
             <button className="btn btn-outline-success" onClick={homeButton}>
